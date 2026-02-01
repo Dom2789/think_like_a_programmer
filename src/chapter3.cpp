@@ -1,6 +1,9 @@
 #include "chapter3.h"
 
-void hello_world()
+namespace chapter3
 {
-    std::cout << "Hello World";
+    void hello_world()
+    {
+        std::cout << "Hello World \n";
+    }
 }

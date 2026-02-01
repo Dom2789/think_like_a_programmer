@@ -1,8 +1,8 @@
-#ifndef CHAPTER3_
-#define CHAPTER3_
+#ifndef CHAPTER6_
+#define CHAPTER6_
 #include <iostream>
 
-namespace chapter3
+namespace chapter6
 {
     void hello_world();
 }
