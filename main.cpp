@@ -3,6 +3,7 @@
 #include "chapter3.h"
 #include "chapter4.h"
 #include "chapter5.h"
+#include <string>
 
 using std::cout;
 using std::cin;
@@ -11,7 +12,23 @@ using std::cin;
 int main()
 {
     cout << "excercises from THINK LIKE A PROGRAMMER\n";
+    
+    const int ARRAY_SIZE = 10;    
+    std::vector<chapter3::student> studentArray = {
+        {87, 10001, "Fred"},
+        {28, 10002, "Tom"},
+        {100, 10003, "Alistair"},
+        {78, 10004, "Sasha"},
+        {84, 10005, "Erin"},
+        {98, 10006, "Belinda"},
+        {75, 10007, "Leslie"},
+        {70, 10008, "Candy"},
+        {81, 10009, "Aretha"},
+        {68, 10010, "Veronica"}
+    };
+
     chapter3::hello_world();
+    chapter3::print_studentArray(studentArray);
     chapter4::hello_world();
     return EXIT_SUCCESS;
 }
