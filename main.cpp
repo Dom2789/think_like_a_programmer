@@ -11,9 +11,8 @@ using std::cin;
 
 int main()
 {
-    cout << "excercises from THINK LIKE A PROGRAMMER\n";
-    
-    const int ARRAY_SIZE = 10;    
+    cout << "exercises from THINK LIKE A PROGRAMMER\n";
+
     std::vector<chapter3::student> studentArray = {
         {87, 10001, "Fred"},
         {28, 10002, "Tom"},
@@ -28,6 +27,8 @@ int main()
     };
 
     chapter3::hello_world();
+    chapter3::print_studentArray(studentArray);
+    chapter3::insertion_sort_down(studentArray);
     chapter3::print_studentArray(studentArray);
     chapter4::hello_world();
     return EXIT_SUCCESS;

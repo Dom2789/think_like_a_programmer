@@ -1,5 +1,7 @@
-#build directory
+# build directory
 build
+# idea
+.idea
 
 # Prerequisites
 *.d
