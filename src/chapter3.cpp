@@ -10,9 +10,33 @@ namespace chapter3
 
     int compare_by_grade(const void* a, const void* b)
     {
-        const auto& studentA = reinterpret_cast<student &>(a);
-        const auto& studentB = reinterpret_cast<student &>(b);
-        return studentA.grade - studentB.grade;
+        student student_a = *static_cast<const student*>(a);
+        student student_b = *static_cast<const student*>(b);
+        return student_a.grade - student_b.grade;
+    }
+
+    int compare_by_studentID(const void* a, const void* b) {
+        student student_a = *static_cast<const student*>(a);
+        student student_b = *static_cast<const student*>(b);
+        return student_a.studentID - student_b.studentID;
+    }
+
+    int compare_by_name(const void* a, const void* b) {
+        student student_a = *static_cast<const student*>(a);
+        student student_b = *static_cast<const student*>(b);
+        int length;
+        if (student_a.name.length() <= student_b.name.length()) {
+            length = student_a.name.length();
+        }else {
+            length = student_b.name.length();
+        }
+        for (size_t i = 0; i < length; ++i) {
+           int ret_value = student_a.name[i] - student_b.name[i];
+            if (ret_value == 0) continue;
+            else return ret_value;
+        }
+        if (student_a.name.length() <= student_b.name.length()) return -1;
+        else return 1;
     }
 
     void print_studentArray(const std::vector<student>& students)
@@ -24,11 +48,23 @@ namespace chapter3
         std::cout << "\n";      
     }
 
-    void insertion_sort_down(std::vector<student>& students) {
+    void insertion_sort_descending(std::vector<student>& students, int (*compare_func)(const void*, const void*)){
         for (size_t i = 1; i < students.size(); ++i) {
             const auto student_to_sort = students[i];
             size_t j = i;
-            while (student_to_sort.grade < students[j-1].grade and j>0) {
+            while (compare_func(&student_to_sort, &students[j-1])>0 and j>0) {
+                students[j] = students[j-1];
+                j--;
+            }
+            students[j] = student_to_sort;
+        }
+    }
+
+    void insertion_sort_ascending(std::vector<student>& students, int (*compare_func)(const void*, const void*)){
+        for (size_t i = 1; i < students.size(); ++i) {
+            const auto student_to_sort = students[i];
+            size_t j = i;
+            while (compare_func(&student_to_sort, &students[j-1])<0 and j>0) {
                 students[j] = students[j-1];
                 j--;
             }

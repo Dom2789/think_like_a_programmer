@@ -23,12 +23,16 @@ int main()
         {75, 10007, "Leslie"},
         {70, 10008, "Candy"},
         {81, 10009, "Aretha"},
-        {68, 10010, "Veronica"}
+        {68, 10010, "Veronica"},
+        {28, 10011, "Tomy"},
+        {98, 10012, "Tomy"}
     };
 
     chapter3::hello_world();
     chapter3::print_studentArray(studentArray);
-    chapter3::insertion_sort_down(studentArray);
+    chapter3::insertion_sort_descending(studentArray, chapter3::compare_by_grade);
+    chapter3::print_studentArray(studentArray);
+    chapter3::insertion_sort_ascending(studentArray, chapter3::compare_by_name);
     chapter3::print_studentArray(studentArray);
     chapter4::hello_world();
     return EXIT_SUCCESS;
