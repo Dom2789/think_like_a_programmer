@@ -28,6 +28,8 @@ int main()
         {98, 10012, "Tomy"}
     };
 
+    std::vector<int> integerArray = {33,23,4,890,31,10009,675,1};
+    /*
     chapter3::hello_world();
     chapter3::print_studentArray(studentArray);
     chapter3::insertion_sort_descending(studentArray, chapter3::compare_by_grade);
@@ -35,5 +37,11 @@ int main()
     chapter3::insertion_sort_ascending(studentArray, chapter3::compare_by_name);
     chapter3::print_studentArray(studentArray);
     chapter4::hello_world();
+    */
+    chapter3::print_array(integerArray);
+    std::cout << "sorted:" << std::endl;
+    chapter3::insertion_sort_ascending(integerArray, chapter3::compare_by_int);
+    chapter3::print_array(integerArray);
+    std::cout << "median:" << chapter3::array_median(integerArray) << std::endl;
     return EXIT_SUCCESS;
 }
