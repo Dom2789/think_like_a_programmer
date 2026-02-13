@@ -36,6 +36,24 @@ namespace chapter3
     }
     void insertion_sort_descending(std::vector<student>& students , int (*compare_func)(const void*, const void*));
     double array_median(const std::vector<int>& sorted_integers);
+    template <typename Container>
+    bool is_sorted_ascending(const Container& container, const size_t size) {
+        for (size_t i = 1; i < size; ++i) {
+            if (container[i-1] > container[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    template <typename Container>
+    bool is_sorted_descending(const Container& container, const size_t size) {
+        for (size_t i = 1; i < size; ++i) {
+            if (container[i-1] < container[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
 
