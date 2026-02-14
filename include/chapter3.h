@@ -13,10 +13,18 @@ namespace chapter3
     void hello_world();
     void print_studentArray(const std::vector<student>& students);
     template <typename T>
-    void print_array(const std::vector<T>& t) {
+    void print_vector(const std::vector<T>& t) {
         for (auto element: t) {
-            std::cout << element << std::endl;
+            std::cout << element << ", ";
         }
+        std::cout << std::endl;
+    };
+    template <typename T, size_t N>
+    void print_array(const std::array<T, N>& t) {
+        for (const auto element: t) {
+            std::cout << element << ", ";
+        }
+        std::cout << std::endl;
     };
     int compare_by_grade(const void* a, const void* b);
     int compare_by_studentID(const void* a, const void* b);
@@ -54,7 +62,7 @@ namespace chapter3
         }
         return true;
     }
-
+    int array_mode(const std::vector<int>& integers);
 }
 
 #endif

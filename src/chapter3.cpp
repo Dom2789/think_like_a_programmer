@@ -73,4 +73,23 @@ namespace chapter3
             return (sorted_integers[size/2]+sorted_integers[size/2+1])/2.0;
         };
     };
+
+    int array_mode(const std::vector<int>& integers) {
+        int mode = 0;
+        std::unordered_map<int, int> occurence;
+        occurence[0] = 0;
+        for (int number : integers) {
+            // calculating frequency of occurence of every number
+            if (occurence.find(number) != occurence.end()) {
+                occurence[number] = 1;
+            } else {
+                occurence[number]++;
+            }
+            // checking if number is now the new mode
+            if (occurence[mode] < occurence[number]) {
+                mode = number;
+            }
+        }
+        return mode;
+    };
 }

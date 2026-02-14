@@ -4,13 +4,22 @@
 #include "chapter4.h"
 #include "chapter5.h"
 #include <string>
+#include <vector>
+#include <ctime>
+#include <random>
+#include <array>
 
 using std::cout;
+using std::endl;
 using std::cin;
 //using namespace chapter3;
 
+constexpr int MAX = 20;
+constexpr int RAND_NUMS_TO_GENERATE = 1000;
+
 int main()
 {
+    std::srand(std::time(nullptr));
     cout << "exercises from THINK LIKE A PROGRAMMER\n";
 
     std::vector<chapter3::student> studentArray = {
@@ -30,6 +39,19 @@ int main()
 
     std::vector<int> integerArray = {33,23,4,890,890,31,10009,675,1};
     std::vector<int> integerArrayDesc = {5,5,4,3,3,2,1};
+    std::vector<int> random_integers(RAND_NUMS_TO_GENERATE);
+    for (int i = 0; i < RAND_NUMS_TO_GENERATE; ++i) {
+        random_integers[i] = std::rand() % MAX;
+    }
+
+    // exercise 3.7
+    chapter3::print_vector(integerArray);
+    cout << chapter3::array_mode(integerArray) << endl;
+    chapter3::print_vector(integerArrayDesc);
+    cout << chapter3::array_mode(integerArrayDesc) << endl;
+    chapter3::print_vector(random_integers);
+    cout << chapter3::array_mode(random_integers) << endl;
+
     /*
     chapter3::hello_world();
     chapter3::print_studentArray(studentArray);
@@ -38,7 +60,7 @@ int main()
     chapter3::insertion_sort_ascending(studentArray, chapter3::compare_by_name);
     chapter3::print_studentArray(studentArray);
     chapter4::hello_world();
-    */
+
     chapter3::print_array(integerArray);
     std::cout << "check " << chapter3::is_sorted_ascending(integerArray, integerArray.size()) << std::endl;
     std::cout << "after sorting:" << std::endl;
@@ -51,5 +73,6 @@ int main()
     std::cout << "check des " << chapter3::is_sorted_descending(integerArrayDesc, integerArrayDesc.size()) << std::endl;
     std::cout << "median:" << chapter3::array_median(integerArray) << std::endl;
     std::cout << "median:" << chapter3::array_median(integerArrayDesc) << std::endl;
+    */
     return EXIT_SUCCESS;
 }
