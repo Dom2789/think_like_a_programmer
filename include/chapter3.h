@@ -43,6 +43,7 @@ namespace chapter3
         }
     }
     void insertion_sort_descending(std::vector<student>& students , int (*compare_func)(const void*, const void*));
+    void quartiles_student_grades(std::vector<student>& students);
     double array_median(const std::vector<int>& sorted_integers);
     template <typename Container>
     bool is_sorted_ascending(const Container& container, const size_t size) {

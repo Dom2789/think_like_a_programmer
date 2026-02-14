@@ -1,5 +1,6 @@
 #include "chapter3.h"
 #include <vector>
+#include <array>
 
 namespace chapter3
 {
@@ -64,6 +65,16 @@ namespace chapter3
             students[j] = student_to_sort;
         }
     }
+
+    void quartiles_student_grades(std::vector<student>& students) {
+        const std::array<double, 3> quartiles = {0.25, 0.5, 0.75};
+        int boundry_quartiles;
+        for (int i = 0; i < 3; ++i) {
+            boundry_quartiles = static_cast<int>(quartiles[i]*students.size()-1);
+            //std::cout << boundry_quartiles << "\n";
+            std::cout << "cutoff for quartile " << quartiles[i]*100<< "%: " << students[boundry_quartiles].grade << "\n";
+        }
+    };
 
     double array_median(const std::vector<int>& sorted_integers) {
         const unsigned long size = sorted_integers.size();

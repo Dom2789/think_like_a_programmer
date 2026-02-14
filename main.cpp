@@ -34,6 +34,8 @@ int main()
         {81, 10009, "Aretha"},
         {68, 10010, "Veronica"},
         {28, 10011, "Tomy"},
+        {10, 10011, "Paige"},
+        {99, 10011, "Jimbo"},
         {98, 10012, "Tomy"}
     };
 
@@ -45,12 +47,21 @@ int main()
     }
 
     // exercise 3.7
+    /*
+    cout << "exercise 3.7\n";
     chapter3::print_vector(integerArray);
     cout << chapter3::array_mode(integerArray) << endl;
     chapter3::print_vector(integerArrayDesc);
     cout << chapter3::array_mode(integerArrayDesc) << endl;
     chapter3::print_vector(random_integers);
     cout << chapter3::array_mode(random_integers) << endl;
+    */
+    // exercise 3.8
+    cout << "exercise 3.8\n\n";
+    chapter3::print_studentArray(studentArray);
+    chapter3::insertion_sort_ascending(studentArray, chapter3::compare_by_grade);
+    chapter3::print_studentArray(studentArray);
+    chapter3::quartiles_student_grades(studentArray);
 
     /*
     chapter3::hello_world();
