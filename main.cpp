@@ -46,6 +46,17 @@ int main()
         random_integers[i] = std::rand() % MAX;
     }
 
+    // chapter 4
+    chapter4::array_string stringArray = new char[5];
+    strcpy(stringArray, "hello");
+
+    for (int i = 0; i < 5; ++i) {
+        std::cout << chapter4::character_at(stringArray, i);
+    };
+    std::cout << std::endl;
+    chapter4::append_tester();
+    chapter4::concatenate_tester();
+
     // exercise 3.7
     /*
     cout << "exercise 3.7\n";
@@ -57,12 +68,13 @@ int main()
     cout << chapter3::array_mode(random_integers) << endl;
     */
     // exercise 3.8
+    /*
     cout << "exercise 3.8\n\n";
     chapter3::print_studentArray(studentArray);
     chapter3::insertion_sort_ascending(studentArray, chapter3::compare_by_grade);
     chapter3::print_studentArray(studentArray);
     chapter3::quartiles_student_grades(studentArray);
-
+    */
     /*
     chapter3::hello_world();
     chapter3::print_studentArray(studentArray);
