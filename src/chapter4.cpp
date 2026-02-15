@@ -81,6 +81,10 @@ namespace chapter4
         return new_s;
     };
 
+    void replace_string(array_string source, array_string target, array_string replace_text) {
+        
+    };
+
     //linked list
 
     void print_student_collection(const student_collection& sc) {

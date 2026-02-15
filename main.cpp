@@ -54,7 +54,7 @@ void string_variable_length() {
     //concatenate_tester();
     std::cout << substring(stringArray, 2, 5) << std::endl;
 
-};
+};—
 
 void chapter_3() {
     using namespace chapter3;
