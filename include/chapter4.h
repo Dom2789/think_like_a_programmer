@@ -12,6 +12,16 @@ namespace chapter4
     int length(array_string s);
     void append_tester();
     void concatenate_tester();
+    // linked list
+    struct list_node {
+        int student_num;
+        int grade;
+        list_node * next;
+    };
+    typedef list_node * student_collection;
+    void print_student_collection(const student_collection& sc);
+    void add_record(student_collection& sc, int student_num, int grade);
+    double average_grade(student_collection sc);
 
 }
 

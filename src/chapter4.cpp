@@ -69,6 +69,38 @@ namespace chapter4
 
     };
 
+    //linked list
 
+    void print_student_collection(const student_collection& sc) {
+        std::cout << "Student collection:" << std::endl;
+        list_node* loop_ptr = sc;
+        do {
+            std::cout << "Addr: " << (void *) loop_ptr;
+            std::cout << " Student number: " << loop_ptr->student_num << " grade: "  << loop_ptr->grade << std::endl;
+            loop_ptr = loop_ptr->next;
+        } while (loop_ptr!=NULL);
+        std::cout << std::endl;
+    };
+
+    void add_record(student_collection& sc, int student_num, int grade) {
+        list_node* new_node = new list_node;
+        new_node->student_num = student_num;
+        new_node->grade = grade;
+        new_node->next = sc;
+        sc = new_node;
+    };
+
+    double average_grade(student_collection sc) {
+        if (sc == NULL) return 0.0;
+        double sum_grades = 0;
+        int counter = 0;
+        list_node* loop_ptr = sc;
+        do {
+            counter++;
+            sum_grades = sum_grades + loop_ptr->grade;
+            loop_ptr = loop_ptr->next;
+        } while (loop_ptr!=NULL);
+        return sum_grades/counter;
+    };
 
 }
