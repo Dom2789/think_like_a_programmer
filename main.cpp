@@ -43,15 +43,16 @@ void linked_lists() {
 
 void string_variable_length() {
     using namespace chapter4;
-    array_string stringArray = new char[5];
-    strcpy(stringArray, "hello");
+    array_string stringArray = new char[10];
+    strcpy(stringArray, "helloworld");
 
     for (int i = 0; i < 5; ++i) {
         std::cout << character_at(stringArray, i);
     };
     std::cout << std::endl;
-    append_tester();
-    concatenate_tester();
+    //append_tester();
+    //concatenate_tester();
+    std::cout << substring(stringArray, 2, 5) << std::endl;
 
 };
 

@@ -7,6 +7,8 @@ namespace chapter4
         std::cout << "Hello World 4\n";
     }
 
+    // variable lenght string
+
     void append_tester() {
         array_string a = new char[5];
         a[0] = 'a'; a[1] = 'b'; a[2] = 'c'; a[3] = 'd'; a[4] = 0;
@@ -67,6 +69,16 @@ namespace chapter4
         std::cout << c << std::endl << a << std::endl;
         std::cout << (void *) c << std::endl << (void *) a << std::endl;
 
+    };
+
+    array_string substring(array_string s, int start, int length) {
+        array_string new_s = new char[length+1];
+        for (int i = 0; i < length; ++i) {
+            if (s[start+1]==0) break;
+            new_s[i] = s[start+i];
+        }
+        new_s[length] = 0;
+        return new_s;
     };
 
     //linked list
