@@ -81,8 +81,48 @@ namespace chapter4
         return new_s;
     };
 
+    int find_substring(array_string s, array_string substring, int len_s, int len_sub) {
+        // finds first occurrence of substring
+        for (int i = 0; i < len_s; ++i) {
+            if (len_sub > len_s - i) {break;}
+            else {
+                bool found = true;
+                for (int j = 0; j < len_sub; ++j) {
+                    if (s[i+j] != substring[j]){
+                        found = false;
+                        break;
+                    }
+                }
+                if (found == true) {
+                    return i;
+                }
+            }
+        };
+        return -1;
+    };
+
     void replace_string(array_string source, array_string target, array_string replace_text) {
-        
+        // not the most efficient because first part of the string gets searched again and again
+        int len_target = length(target);
+        int first_occurence;
+        do {
+            int len_source = length(source);
+            first_occurence = find_substring(source, target, len_source, len_target);
+            if (first_occurence != -1) {
+                array_string tail = new char[len_source-first_occurence-len_target+1];
+                for (int i = 0; i < len_source-first_occurence-len_target; ++i) {
+                    tail[i] = source[i+first_occurence+len_target];
+                }
+                tail[len_source-first_occurence-len_target] = 0;
+                std::cout << source << std::endl;
+                source = substring(source, 0 , first_occurence);
+                concatenate(source, replace_text);
+                concatenate(source, tail);
+                std::cout << tail << std::endl;
+                std::cout << source << std::endl;
+                delete[] tail;
+            };
+        }while (first_occurence!=-1);
     };
 
     //linked list

@@ -14,6 +14,7 @@ namespace chapter4
     void append_tester();
     void concatenate_tester();
     array_string substring(array_string s, int start, int length);
+    int find_substring(array_string s, array_string sub, int len_s, int len_sub);
     void replace_string(array_string source, array_string target, array_string replace_text);
     // linked list
     struct list_node {

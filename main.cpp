@@ -43,18 +43,18 @@ void linked_lists() {
 
 void string_variable_length() {
     using namespace chapter4;
-    array_string stringArray = new char[10];
-    strcpy(stringArray, "helloworld");
+    array_string a = new char[6];
+    a[0] = 'W'; a[1] = 'e'; a[2] = 'r'; a[3] = 0; a[4] = 'o'; a[5] = 0;
+    array_string b = new char[12];
+    b[0] = 'W'; b[1] = 'e'; b[2] = 'o'; b[3] = 'W'; b[4] = 'e'; b[5] = 'r'; b[6] = 'i'; b[7] = 'y'; b[8] = 'W'; b[9] = 'e'; b[10] = 'r'; b[11] = 0;
+    array_string c = new char[5];
+    c[0] = 'Y'; c[1] = 'E'; c[2] = 'S'; c[3] = '!'; c[4] = 0;
 
-    for (int i = 0; i < 5; ++i) {
-        std::cout << character_at(stringArray, i);
-    };
-    std::cout << std::endl;
     //append_tester();
     //concatenate_tester();
-    std::cout << substring(stringArray, 2, 5) << std::endl;
+    replace_string(b, a, c);
 
-};—
+};
 
 void chapter_3() {
     using namespace chapter3;
@@ -129,7 +129,7 @@ void chapter_3() {
 int main()
 {
     cout << "Exercises from THINK LIKE A PROGRAMMER\n\n";
-    linked_lists();
+    //linked_lists();
     string_variable_length();
     //chapter_3();
     return EXIT_SUCCESS;
