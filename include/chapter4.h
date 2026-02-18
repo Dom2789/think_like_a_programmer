@@ -16,6 +16,11 @@ namespace chapter4
     array_string substring(array_string s, int start, int length);
     int find_substring(array_string s, array_string sub, int len_s, int len_sub);
     void replace_string(array_string source, array_string target, array_string replace_text);
+    // variable length string length as first entry
+    typedef char * array_string_l;
+    char character_at_l(array_string_l s, int postion);
+    void append_l(array_string_l& s, char c);
+    void concatenate_l(array_string_l& s1, array_string_l s2);
     // linked list
     struct list_node {
         int student_num;

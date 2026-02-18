@@ -125,6 +125,31 @@ namespace chapter4
         }while (first_occurence!=-1);
     };
 
+    // string with length as first entry
+    char character_at_l(array_string_l s, int postion) {
+        return s[postion+1];
+    };
+
+    void append_l (array_string_l& s, char c) {
+        array_string_l new_s = new char[s[0]+2];
+        // copy all characters from old string except terminating 0
+        for (int i = 1; i <= s[0]; ++i) new_s[i] = s[i];
+        // append new character and put terminating 0
+        new_s[s[0]+1] = c;
+        new_s[s[0]] = s[0]+1;
+        delete[] s;
+        s = new_s;
+    };
+
+    void concatenate_l(array_string_l &s1, array_string_l s2) {
+        array_string_l new_s = new char[s1[0]+s2[0]+1];
+        for (int i = 0; i < s1[0]; ++i) new_s[i] = s1[i];
+        for (int i = 0; i < s2[0]; ++i) new_s[s1[0]+i] = s2[i];
+        new_s[s1[0]+s2[0]] = 0;
+        delete[] s1;
+        s1 = new_s;
+    };
+
     //linked list
 
     void print_student_collection(const student_collection& sc) {
