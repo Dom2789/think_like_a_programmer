@@ -21,6 +21,7 @@ namespace chapter4
     char character_at_l(array_string_l s, int postion);
     void append_l(array_string_l& s, char c);
     void concatenate_l(array_string_l& s1, array_string_l s2);
+    void print_l(array_string_l s);
     // linked list
     struct list_node {
         int student_num;

@@ -56,6 +56,20 @@ void string_variable_length() {
 
 };
 
+void string_l(){
+    using namespace chapter4;
+    array_string_l a = new char[6];
+    a[0] = 5; a[1] = 'e'; a[2] = 'r'; a[3] = 'z'; a[4] = 'o'; a[5] = 'g';
+    array_string_l b = new char[2];
+    b[0] = 2; b[1] = 'p'; b[2] = 't';
+    print_l(a);
+    std::cout << character_at(a,2) << std::endl;
+    concatenate_l(a,b);
+    print_l(a);
+    append_l(a, '!');
+    print_l(a);
+};
+
 void chapter_3() {
     using namespace chapter3;
     std::srand(std::time(nullptr));
@@ -128,9 +142,10 @@ void chapter_3() {
 
 int main()
 {
-    cout << "Exercises from THINK LIKE A PROGRAMMER\n\n";
+    cout << "Exercises from THINK LIKE A PROGRAMMER\n";
     //linked_lists();
-    string_variable_length();
+    //string_variable_length();
+    string_l();
     //chapter_3();
     return EXIT_SUCCESS;
 }
