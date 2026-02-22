@@ -258,8 +258,61 @@ namespace chapter4
         std::cout << e->number;
     };
 
-    endless_integer sum_endless_integer(endless_integer e1, endless_integer e2) {
-        ;
+    endless_integer sum_endless_integer(const endless_integer e1, const endless_integer e2) {
+        integer_node* first = e1;
+        integer_node* second = e2;
+        integer_node* last_node = NULL;
+        endless_integer e = NULL;
+        bool carry = false;
+        do {
+            integer_node* new_node = new integer_node;
+            int sum = 0;
+            int first_digit, second_digit = 0;
+            if (first != NULL) {
+                first_digit = first->number;
+            }
+            if (second != NULL) {
+                second_digit = second->number;
+            }
+            if (carry) {
+                carry = false;
+                sum = first_digit + second_digit +1 ;
+            } else {
+                sum = first_digit + second_digit;
+            }
+            if (sum >= 10) {
+                carry = true;
+                sum = sum%10;
+            }
+            new_node->number = sum;
+            new_node->next = NULL;
+            if (first != NULL && first->next != NULL) {
+                first = first->next;
+            } else {
+                first = NULL;
+            }
+            if (second!= NULL && second->next != NULL) {
+                second = second->next;
+            }else {
+                second = NULL;
+            }
+            if (last_node == NULL){
+                e = new_node;
+            } else {
+                last_node->next = new_node;
+            }
+            last_node = new_node;
+            new_node = NULL;
+        }while (first != NULL || second != NULL);
+        if (carry) {
+            integer_node* new_node = new integer_node;
+            new_node->number = 1;
+            new_node->next = NULL;
+            last_node->next = new_node;
+            new_node = NULL;
+        }
+
+        return e;
     };
 
 }

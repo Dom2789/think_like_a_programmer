@@ -52,11 +52,18 @@ void linked_lists() {
 
 void endless_integer() {
     using namespace chapter4;
-    int integer = 0;
+    int integer, integer2 = 0;
+    //std::cin >> integer;
+    //auto endless_integer = create_endless_integer(integer);
+    //print_endless_integer(endless_integer);
+    //print_endless_integer_recursive(endless_integer);
+    //std::cout << std::endl;
     std::cin >> integer;
-    auto endless_integer = create_endless_integer(integer);
-    print_endless_integer(endless_integer);
-    print_endless_integer_recursive(endless_integer);
+    auto endless_integer1 = create_endless_integer(integer);
+    std::cin >> integer2;
+    auto endless_integer2 = create_endless_integer(integer2);
+    auto sum = sum_endless_integer(endless_integer1, endless_integer2);
+    print_endless_integer_recursive(sum);
     std::cout << std::endl;
 };
 
