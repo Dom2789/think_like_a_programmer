@@ -32,6 +32,7 @@ namespace chapter4
     void print_student_collection(const student_collection& sc);
     void add_record(student_collection& sc, int student_num, int grade);
     double average_grade(student_collection sc);
+    void remove_record(student_collection& sc, int student_num);
 
 }
 

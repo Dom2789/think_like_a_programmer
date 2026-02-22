@@ -39,6 +39,15 @@ void linked_lists() {
     add_record(sc, 1006,100);
     print_student_collection(sc);
     std::cout << "Grade average: " << average_grade(sc) << std::endl;
+    remove_record(sc, 1006);
+    print_student_collection(sc);
+    remove_record(sc, 1002);
+    print_student_collection(sc);
+    add_record(sc, 1010,10);
+    print_student_collection(sc);
+    remove_record(sc, 1003);
+    print_student_collection(sc);
+    std::cout << "Grade average: " << average_grade(sc) << std::endl;
 };
 
 void string_variable_length() {
@@ -143,9 +152,9 @@ void chapter_3() {
 int main()
 {
     cout << "Exercises from THINK LIKE A PROGRAMMER\n";
-    //linked_lists();
+    linked_lists();
     //string_variable_length();
-    string_l();
+    //string_l();
     //chapter_3();
     return EXIT_SUCCESS;
 }

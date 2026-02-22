@@ -198,4 +198,24 @@ namespace chapter4
         return sum_grades/counter;
     };
 
+    void remove_record(student_collection& sc, int student_num) {
+        list_node* loop_ptr = sc;
+        list_node* prev = NULL;
+        do {
+            if (loop_ptr->student_num == student_num ) {
+                if (prev == NULL) {
+                    sc = sc->next;
+                }else{
+                    std::cout << std::endl;
+                    prev->next = loop_ptr->next;
+                    std::cout << std::endl;
+                };
+                delete loop_ptr;
+                break;
+            };
+            prev = loop_ptr;
+            loop_ptr = loop_ptr->next;
+        } while (loop_ptr!=NULL);
+    };
+
 }
