@@ -33,7 +33,14 @@ namespace chapter4
     void add_record(student_collection& sc, int student_num, int grade);
     double average_grade(student_collection sc);
     void remove_record(student_collection& sc, int student_num);
-
+    // linked list for integers
+    struct integer_node {
+        int number;
+        integer_node * next;
+    };
+    typedef integer_node * endless_integer;
+    endless_integer create_endless_integer(int integer);
+    void print_endless_integer(endless_integer e);
 }
 
 

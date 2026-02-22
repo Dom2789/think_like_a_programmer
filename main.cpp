@@ -50,6 +50,14 @@ void linked_lists() {
     std::cout << "Grade average: " << average_grade(sc) << std::endl;
 };
 
+void endless_integer() {
+    using namespace chapter4;
+    int integer = 0;
+    std::cin >> integer;
+    auto endless_integer = create_endless_integer(integer);
+    print_endless_integer(endless_integer);
+};
+
 void string_variable_length() {
     using namespace chapter4;
     array_string a = new char[6];
@@ -152,7 +160,8 @@ void chapter_3() {
 int main()
 {
     cout << "Exercises from THINK LIKE A PROGRAMMER\n";
-    linked_lists();
+    endless_integer();
+    //linked_lists();
     //string_variable_length();
     //string_l();
     //chapter_3();
