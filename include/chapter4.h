@@ -41,6 +41,8 @@ namespace chapter4
     typedef integer_node * endless_integer;
     endless_integer create_endless_integer(int integer);
     void print_endless_integer(endless_integer e);
+    void print_endless_integer_recursive(endless_integer e);
+    endless_integer sum_endless_integer(endless_integer e1, endless_integer e2);
 }
 
 

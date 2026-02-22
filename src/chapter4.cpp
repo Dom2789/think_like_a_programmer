@@ -220,17 +220,23 @@ namespace chapter4
 
     // linked list for integers
     endless_integer create_endless_integer(int integer) {
-        integer_node* node_pointer = NULL;
+        integer_node* last_node = NULL;
+        endless_integer e = NULL;
         do {
             int last_digit = integer%10;
             integer = integer/10;
             auto new_node = new integer_node;
             new_node->number = last_digit;
-            new_node->next = node_pointer;
-            node_pointer = new_node;
+            new_node->next = NULL;
+            if (last_node == NULL){
+                e = new_node;
+            } else {
+                last_node->next = new_node;
+            }
+            last_node = new_node;
             new_node = NULL;
         }while (integer!=0);
-        return node_pointer;
+        return e;
     };
 
     void print_endless_integer(const endless_integer e) {
@@ -241,6 +247,19 @@ namespace chapter4
             loop_ptr = loop_ptr->next;
         } while (loop_ptr!=NULL);
         std::cout << std::endl;
+    };
+
+    void print_endless_integer_recursive(endless_integer e) {
+        if (e->next == NULL) {
+            std::cout << e->number;
+            return;
+        }
+        print_endless_integer_recursive(e->next);
+        std::cout << e->number;
+    };
+
+    endless_integer sum_endless_integer(endless_integer e1, endless_integer e2) {
+        ;
     };
 
 }

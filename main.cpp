@@ -56,6 +56,8 @@ void endless_integer() {
     std::cin >> integer;
     auto endless_integer = create_endless_integer(integer);
     print_endless_integer(endless_integer);
+    print_endless_integer_recursive(endless_integer);
+    std::cout << std::endl;
 };
 
 void string_variable_length() {
