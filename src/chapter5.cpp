@@ -100,4 +100,9 @@ namespace chapter5
         return letter_grade;
     };
 
+    // constructor
+    student_collection::student_collection() {
+        _list_head = NULL;
+    }
+
 };
