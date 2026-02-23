@@ -15,10 +15,12 @@ namespace chapter5
             void set_id(int new_id);
             std::string get_name();
             void set_name(std::string new_name);
+            std::string letter_grade();
         private:
             int _grade;
             int _id;
             std::string _name;
+            bool is_valid_grade(int new_grade);
     };
 }
 

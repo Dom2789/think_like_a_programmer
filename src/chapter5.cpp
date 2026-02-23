@@ -12,7 +12,7 @@ namespace chapter5
     };
 
     void student_record::set_grade(int new_grade) {
-        if (new_grade >= 0 && new_grade <= 100) {
+        if (is_valid_grade(new_grade)) {
             _grade = new_grade;
         };
     };
@@ -45,4 +45,59 @@ namespace chapter5
         set_id(-1);
         set_name("");
     };
+
+    std::string student_record::letter_grade() {
+        std::string letter_grade;
+        if (is_valid_grade(_grade)) {
+            switch (_grade) {
+                case 93 ... 100:
+                    letter_grade = "A";
+                    break;
+                case 90 ... 92:
+                    letter_grade = "A-";
+                    break;
+                case 87 ... 89:
+                    letter_grade = "B+";
+                    break;
+                case 83 ... 86:
+                    letter_grade = "B";
+                    break;
+                case 80 ... 82:
+                    letter_grade = "B-";
+                    break;
+                case 77 ... 79:
+                    letter_grade = "C+";
+                    break;
+                case 73 ... 76:
+                    letter_grade = "C";
+                    break;
+                case 70 ... 72:
+                    letter_grade = "C-";
+                    break;
+                case 67 ... 69:
+                    letter_grade = "D+";
+                    break;
+                case 60 ... 66:
+                    letter_grade = "D";
+                    break;
+                case 0 ... 59:
+                    letter_grade = "F";
+                    break;
+                default:
+                    letter_grade = "ERROR ";
+                    break;
+            }
+        } else {
+            letter_grade = "ERROR ";
+        }
+        return letter_grade;
+    };
+
+    bool is_valid_grade(int new_grade) {
+        if (new_grade >= 0 && new_grade <= 100) {
+            return true;
+        }
+        return false;
+    }
+
 };
