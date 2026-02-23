@@ -7,6 +7,13 @@ namespace chapter5
         std::cout << "Hello World 5\n";
     }
 
+    bool student_record::is_valid_grade(int new_grade) {
+        if (new_grade >= 0 && new_grade <= 100) {
+            return true;
+        }
+        return false;
+    }
+
     int student_record::get_grade() {
         return _grade;
     };
@@ -92,12 +99,5 @@ namespace chapter5
         }
         return letter_grade;
     };
-
-    bool is_valid_grade(int new_grade) {
-        if (new_grade >= 0 && new_grade <= 100) {
-            return true;
-        }
-        return false;
-    }
 
 };
