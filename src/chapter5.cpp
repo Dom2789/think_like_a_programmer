@@ -27,6 +27,7 @@ namespace chapter5
     int student_record::get_id() const {
         return _id;
     };
+
     void student_record::set_id(int new_id) {
         _id = new_id;
     };
@@ -100,9 +101,44 @@ namespace chapter5
         return letter_grade;
     };
 
+    void student_record::print_record() {
+        std::cout << " Student number: " << get_id();
+        std::cout << " grade: "  << get_grade();
+        std::cout << " name: " << get_name();
+        std::cout << std::endl;
+    }
+
     // constructor
     student_collection::student_collection() {
         _list_head = NULL;
     }
 
+    void student_collection::add_record(const student_record& new_student) {
+        auto* new_node = new student_node;
+        new_node->student_data = new_student;
+        new_node->next = _list_head;
+        _list_head = new_node;
+    }
+
+    student_record student_collection::get_record_with_number(int id_num) {
+        student_node* loop_ptr = _list_head;
+        while (loop_ptr != NULL && loop_ptr->student_data.get_id() != id_num) {
+            loop_ptr = loop_ptr->next;
+        }
+        if (loop_ptr == NULL) {
+            student_record dummy_record(-1,-1,"");
+            return dummy_record;
+        } else {
+            return loop_ptr->student_data;
+        }
+    }
+
+    void student_collection::print_all_students() {
+        student_node* loop_ptr = _list_head;
+        while (loop_ptr != NULL) {
+            loop_ptr->student_data.print_record();
+            loop_ptr = loop_ptr->next;
+        }
+
+    };
 };

@@ -16,13 +16,14 @@ namespace chapter5
             std::string get_name();
             void set_name(std::string new_name);
             std::string letter_grade();
+            void print_record();
         private:
             int _grade;
             int _id;
             std::string _name;
             bool is_valid_grade(int new_grade);
     };
-    class student_collection {
+    class student_collection{
         private:
             struct student_node {
                 student_record student_data;
@@ -30,9 +31,10 @@ namespace chapter5
             };
         public:
             student_collection();
-            void add_record(student_record new_student);
-            student_record record_with_number(int id_num);
+            void add_record(const student_record& new_student);
+            student_record get_record_with_number(int id_num);
             void remove_record(int id_num);
+            void print_all_students();
         private:
             typedef student_node* student_list;
             student_list _list_head;

@@ -166,10 +166,26 @@ void chapter_3() {
     */
 };
 
+void class_tester() {
+    using namespace chapter5;
+    auto sc = new student_collection;
+    sc->add_record(student_record(100, 10001, "Tom"));
+    sc->add_record(student_record(2, 10002, "Sasha"));
+    sc->add_record(student_record(67, 10003, "Alistair"));
+    sc->add_record(student_record(31, 10004, "Erin"));
+
+    auto student = sc->get_record_with_number(10003);
+    student.print_record();
+    std::cout << std::endl;
+    sc->print_all_students();
+
+};
+
 int main()
 {
     cout << "Exercises from THINK LIKE A PROGRAMMER\n";
-    endless_integer();
+    class_tester();
+    //endless_integer();
     //linked_lists();
     //string_variable_length();
     //string_l();
