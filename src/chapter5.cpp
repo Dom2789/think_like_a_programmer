@@ -118,7 +118,7 @@ namespace chapter5
         new_node->student_data = new_student;
         new_node->next = _list_head;
         _list_head = new_node;
-    }
+    };
 
     student_record student_collection::get_record_with_number(int id_num) {
         student_node* loop_ptr = _list_head;
@@ -131,7 +131,7 @@ namespace chapter5
         } else {
             return loop_ptr->student_data;
         }
-    }
+    };
 
     void student_collection::print_all_students() {
         student_node* loop_ptr = _list_head;
@@ -139,6 +139,34 @@ namespace chapter5
             loop_ptr->student_data.print_record();
             loop_ptr = loop_ptr->next;
         }
-
     };
+
+    void student_collection::remove_record(int id_num) {
+        student_node* loop_ptr = _list_head;
+        student_node* loop_ptr_prev = NULL;
+        while (loop_ptr != NULL && loop_ptr->student_data.get_id() != id_num) {
+            loop_ptr_prev = loop_ptr;
+            loop_ptr = loop_ptr->next;
+        }
+        if (loop_ptr == NULL) return;
+        if (loop_ptr_prev == NULL) {
+            _list_head = _list_head->next;
+        } else {
+            loop_ptr_prev->next = loop_ptr->next;
+        }
+        delete loop_ptr;
+    };
+
+    void student_collection::delete_list(student_list& list_ptr) {
+        while (list_ptr != NULL) {
+            student_node* temp = list_ptr;
+            list_ptr = list_ptr->next;
+            delete temp;
+        }
+    };
+
+    // destructor
+    student_collection::~student_collection() {
+        delete_list(_list_head);
+    }
 };

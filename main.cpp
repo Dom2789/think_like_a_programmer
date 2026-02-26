@@ -179,6 +179,11 @@ void class_tester() {
     std::cout << std::endl;
     sc->print_all_students();
 
+    sc->remove_record(10001);
+    std::cout << std::endl;
+    sc->print_all_students();
+
+    delete sc;
 };
 
 int main()

@@ -31,6 +31,7 @@ namespace chapter5
             };
         public:
             student_collection();
+            ~student_collection();
             void add_record(const student_record& new_student);
             student_record get_record_with_number(int id_num);
             void remove_record(int id_num);
@@ -38,6 +39,7 @@ namespace chapter5
         private:
             typedef student_node* student_list;
             student_list _list_head;
+            void delete_list(student_list& list_ptr);
     };
 }
 
