@@ -189,8 +189,8 @@ void class_tester() {
 int main()
 {
     cout << "Exercises from THINK LIKE A PROGRAMMER\n";
-    class_tester();
-    //endless_integer();
+    //class_tester();
+    endless_integer();
     //linked_lists();
     //string_variable_length();
     //string_l();
