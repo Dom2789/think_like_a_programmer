@@ -1,6 +1,7 @@
 #include "chapter3.h"
 #include <vector>
 #include <array>
+#include <unordered_map>
 
 namespace chapter3
 {

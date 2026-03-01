@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include <random>
+#include <ctime>
 
 using std::cout;
 using std::endl;
@@ -15,7 +16,7 @@ constexpr int RAND_NUMS_TO_GENERATE = 1000;
 
 void linked_lists() {
     using namespace chapter4;
-    // chapter 4
+    // chapter 4s
     // linked lists
     student_collection sc;
     list_node * node1 = new list_node;
@@ -189,8 +190,8 @@ void class_tester() {
 int main()
 {
     cout << "Exercises from THINK LIKE A PROGRAMMER\n";
-    //class_tester();
-    endless_integer();
+    class_tester();
+    //endless_integer();
     //linked_lists();
     //string_variable_length();
     //string_l();

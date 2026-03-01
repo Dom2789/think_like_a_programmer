@@ -1,6 +1,7 @@
 #ifndef CHAPTER3_
 #define CHAPTER3_
 #include <iostream>
+#include <vector>
 
 namespace chapter3
 {
