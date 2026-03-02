@@ -32,14 +32,17 @@ namespace chapter5
         public:
             student_collection();
             ~student_collection();
+            student_collection(const student_collection& original);
             void add_record(const student_record& new_student);
             student_record get_record_with_number(int id_num);
             void remove_record(int id_num);
             void print_all_students();
+            student_collection& operator= (const student_collection& rhs);
         private:
             typedef student_node* student_list;
             student_list _list_head;
             void delete_list(student_list& list_ptr);
+            student_list deep_copy(const student_list original);
     };
 }
 

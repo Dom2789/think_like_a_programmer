@@ -179,10 +179,25 @@ void class_tester() {
     student.print_record();
     std::cout << std::endl;
     sc->print_all_students();
+    auto sc2(sc);
+    auto sc3 = sc;
 
     sc->remove_record(10001);
+    sc->add_record(student_record(56, 10005, "Paulina"));
     std::cout << std::endl;
     sc->print_all_students();
+
+    std::cout << std::endl;
+    sc2->print_all_students();
+    std::cout << std::endl;
+    sc3->print_all_students();
+
+    sc3->add_record(student_record(38, 10006, "Paul"));
+
+    std::cout << std::endl;
+    sc2->print_all_students();
+    std::cout << std::endl;
+    sc3->print_all_students();
 
     delete sc;
 };
