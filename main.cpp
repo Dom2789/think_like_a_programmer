@@ -202,15 +202,27 @@ void class_tester() {
     delete sc;
 };
 
+void exercises_chapter5()
+{
+    using namespace chapter5;
+    automobile car1 = automobile();
+    automobile car2 = automobile("BMW", "330d", 2020);
+    car1.print_data();
+    car2.print_data();
+    car1.print_age();
+    car2.print_age();
+};
+
 int main()
 {
     cout << "Exercises from THINK LIKE A PROGRAMMER\n";
-    class_tester();
+    //class_tester();
     //endless_integer();
     //linked_lists();
     //string_variable_length();
     //string_l();
     //chapter_3();
+    exercises_chapter5();
     return EXIT_SUCCESS;
 }
 

@@ -5,6 +5,25 @@
 namespace chapter5
 {
     void hello_world();
+    int get_current_year();
+    class automobile
+    {
+        public:
+            automobile();
+            automobile(const std::string &manufacturer, const std::string &model, int model_year);
+            void set_manufacturer(std::string manufacturer);
+            void set_model(std::string model);
+            void set_model_year(int new_year);
+            std::string get_manufacturer();
+            std::string get_model();
+            int get_model_year();
+            void print_data();
+            void print_age();
+        private:
+            std:: string _manufacturer;
+            std:: string _model_name;
+            int _model_year;
+    };
     class student_record {
         public:
             student_record();

@@ -1,10 +1,68 @@
 #include "chapter5.h"
+#include <ctime>
 
 namespace chapter5
 {
     void hello_world()
     {
         std::cout << "Hello World 5\n";
+    }
+
+    int get_current_year() {
+        std::time_t t = std::time(0); // Get current time
+        const std::tm* now = std::localtime(&t);
+        const int year = (now->tm_year + 1900);
+        return year;
+    }
+
+    void automobile::print_data()
+    {
+        std::cout << get_model_year() << " " << get_manufacturer() << " " << get_model();
+        std::cout << std::endl;
+    }
+
+    void automobile::print_age()
+    {
+        const int age = get_current_year() - get_model_year();
+        std::cout << get_manufacturer() << " " << get_model() << " is " << age << " years old." << std::endl;
+    }
+
+    // default constructor
+    automobile::automobile() {
+        _manufacturer = "BMW";
+        _model_name = "M3";
+        _model_year = 1989;
+    }
+
+    // cotr
+    automobile::automobile(const std::string &manufacturer, const std::string &model, int model_year) {
+        _manufacturer = manufacturer;
+        _model_name = model;
+        _model_year = model_year;
+    }
+
+    void automobile::set_manufacturer(std::string manufacturer) {
+        _manufacturer = manufacturer;
+    }
+
+    void automobile::set_model(std::string model) {
+        _model_name = model;
+    }
+
+    void automobile::set_model_year(int new_year) {
+        _model_year = new_year;
+    }
+
+    std::string automobile::get_manufacturer() {
+        return _manufacturer;
+    }
+
+    std::string automobile::get_model() {
+        return _model_name;
+    }
+
+    int automobile::get_model_year() {
+        return _model_year;
     }
 
     bool student_record::is_valid_grade(int new_grade) {
