@@ -8,6 +8,75 @@ namespace chapter5
         std::cout << "Hello World 5\n";
     }
 
+    string::string()
+    {
+        _array = new char[0];
+    }
+
+    string::string(array_string& arr)
+    {
+        _array = arr;
+        arr = nullptr;
+    }
+
+    string::array_string string::get_array() const
+    {
+        return _array;
+    }
+
+    void string::set_array(array_string &new_array)
+    {
+        _array = new_array;
+        new_array = nullptr;
+    }
+
+    char string::character_at(int position) const
+    {
+        if (position >= length()) return 0;
+        return _array[position];
+    }
+
+    int string::length() const
+    {
+        int length = 0;
+        // counts chars without terminating 0
+        while (_array[length]!= 0) length++;
+        return length;
+    };
+
+    int string::length(array_string s) const
+    {
+        int length = 0;
+        // counts chars without terminating 0
+        while (s[length]!= 0) length++;
+        return length;
+    };
+
+    void string::append (char c)
+    {
+        int length_old = length();
+
+        array_string new_s = new char[length_old+2];
+        // copy all characters from old string except terminating 0
+        for (int i = 0; i < length_old; ++i) new_s[i] = _array[i];
+        // append new character and put terminating 0
+        new_s[length_old] = c;
+        new_s[length_old+1] = 0;
+        delete[] _array;
+        _array = new_s;
+    };
+
+    void string::concatenate(array_string s2) {
+        int length1 = length();
+        int length2 = length(s2);
+        array_string new_s = new char[length1+length2+1];
+        for (int i = 0; i < length1; ++i) new_s[i] = _array[i];
+        for (int i = 0; i < length2; ++i) new_s[length1+i] = s2[i];
+        new_s[length1+length2] = 0;
+        delete[] _array;
+        _array = new_s;
+    };
+
     int get_current_year() {
         std::time_t t = std::time(0); // Get current time
         const std::tm* now = std::localtime(&t);

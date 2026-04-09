@@ -213,6 +213,29 @@ void exercises_chapter5()
     car2.print_age();
 };
 
+void tester_class_string()
+{
+    using namespace chapter5;
+    typedef char * array_string;
+    array_string a = new char[6];
+    a[0] = 'W'; a[1] = 'e'; a[2] = 'r'; a[3] = 't'; a[4] = 'o'; a[5] = 0;
+    array_string b = new char[12];
+    b[0] = 'W'; b[1] = 'e'; b[2] = 'o'; b[3] = 'W'; b[4] = 'e'; b[5] = 'r'; b[6] = 'i'; b[7] = 'y'; b[8] = 'W'; b[9] = 'e'; b[10] = 'r'; b[11] = 0;
+
+    auto string1 = string(a);
+    std::cout << string1.get_array() << std::endl;
+    std::cout << string1.length() << std::endl;
+    std::cout << string1.character_at(4) << std::endl;
+    std::cout << string1.character_at(5) << std::endl;
+    string1.append('?');
+    std::cout << string1.character_at(5) << std::endl;
+
+    string1.concatenate(b);
+    std::cout << string1.get_array() << std::endl;
+    std::cout << string1.length() << std::endl;
+
+};
+
 int main()
 {
     cout << "Exercises from THINK LIKE A PROGRAMMER\n";
@@ -222,7 +245,8 @@ int main()
     //string_variable_length();
     //string_l();
     //chapter_3();
-    exercises_chapter5();
+    //exercises_chapter5();
+    tester_class_string();
     return EXIT_SUCCESS;
 }
 

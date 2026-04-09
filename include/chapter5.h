@@ -6,6 +6,26 @@ namespace chapter5
 {
     void hello_world();
     int get_current_year();
+
+    class string
+    {
+        typedef char * array_string;
+        public:
+            string();
+            string(array_string &arr);
+            char character_at(int position) const;
+            void append (char c);
+            void concatenate(array_string s2);
+            array_string get_array() const;
+            void set_array(array_string &new_array);
+            int length() const;
+
+        private:
+            array_string _array;
+            int length(array_string s) const;
+
+    };
+
     class automobile
     {
         public:
