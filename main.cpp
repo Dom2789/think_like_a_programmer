@@ -239,15 +239,16 @@ void tester_class_string()
 void recursive_examples()
 {
     using namespace chapter6;
-    int numbers[10];
-    for (int i = 0; i < 10; ++i)
+    int length = 10;
+    int numbers[length];
+    for (int i = 0; i < length; ++i)
     {
         numbers[i] = i+1;
         //std::cout << numbers[i] << std::endl;
     }
-    std::cout << iterative_array_sum(numbers, 10) << std::endl;
-    std::cout << recursive_array_sum(numbers, 10) << std::endl;
-    std::cout << gauss_array_sum(numbers, 10) << std::endl;
+    std::cout << iterative_array_sum(numbers, length) << std::endl;
+    std::cout << recursive_array_sum(numbers, length) << std::endl;
+    std::cout << gauss_array_sum(numbers, length) << std::endl;
 };
 
 int main()
