@@ -3,10 +3,10 @@
 #include "chapter3.h"
 #include "chapter4.h"
 #include "chapter5.h"
+#include "chapter6.h"
 #include <string>
 #include <vector>
 #include <random>
-#include <ctime>
 
 using std::cout;
 using std::endl;
@@ -236,6 +236,20 @@ void tester_class_string()
 
 };
 
+void recursive_examples()
+{
+    using namespace chapter6;
+    int numbers[10];
+    for (int i = 0; i < 10; ++i)
+    {
+        numbers[i] = i+1;
+        //std::cout << numbers[i] << std::endl;
+    }
+    std::cout << iterative_array_sum(numbers, 10) << std::endl;
+    std::cout << recursive_array_sum(numbers, 10) << std::endl;
+    std::cout << gauss_array_sum(numbers, 10) << std::endl;
+};
+
 int main()
 {
     cout << "Exercises from THINK LIKE A PROGRAMMER\n";
@@ -246,7 +260,8 @@ int main()
     //string_l();
     //chapter_3();
     //exercises_chapter5();
-    tester_class_string();
+    //tester_class_string();
+    recursive_examples();
     return EXIT_SUCCESS;
 }
 
