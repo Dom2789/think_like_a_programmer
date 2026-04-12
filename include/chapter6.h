@@ -8,6 +8,9 @@ namespace chapter6
     int iterative_array_sum(const int a[], int n);
     int recursive_array_sum(const int a[], int n);
     int gauss_array_sum(const int a[], int n);
+    int recursive_array_sum_positive(const int a[], int n);
+    bool parity_is_odd_iterative(const bool b[], unsigned int n);
+    bool parity_is_odd_recursive(const bool b[], unsigned int n);
 }
 
 #endif

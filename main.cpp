@@ -243,12 +243,55 @@ void recursive_examples()
     int numbers[length];
     for (int i = 0; i < length; ++i)
     {
-        numbers[i] = i+1;
+        numbers[i] = -(i+1);
         //std::cout << numbers[i] << std::endl;
     }
     std::cout << iterative_array_sum(numbers, length) << std::endl;
     std::cout << recursive_array_sum(numbers, length) << std::endl;
-    std::cout << gauss_array_sum(numbers, length) << std::endl;
+    //std::cout << gauss_array_sum(numbers, length) << std::endl;
+    std::cout << recursive_array_sum_positive(numbers, length) << std::endl;
+};
+
+void recursive_exercises()
+{
+    using namespace chapter6;
+    int length = 10;
+    /*
+    int numbers[length];
+    bool negative = true;
+    for (int i = 0; i < length; ++i)
+    {
+        if (negative)
+        {
+            numbers[i] = -(i+1);
+            negative = false;
+        }else{
+            numbers[i] = i+1;
+            negative = true;
+        }
+        //std::cout << numbers[i] << std::endl;
+    }
+    std::cout << iterative_array_sum(numbers, length) << std::endl;
+    std::cout << recursive_array_sum(numbers, length) << std::endl;
+    std::cout << recursive_array_sum_positive(numbers, length) << std::endl;
+    */
+    length = 7;
+    bool bitstream[length];
+    bool one = true;
+    for (int i = 0; i < length; ++i)
+    {
+        if (one)
+        {
+            bitstream[i] = true;
+            one = false;
+        }else{
+            bitstream[i] = false;
+            one = true;
+        }
+        std::cout << bitstream[i] << std::endl;
+    };
+    std::cout << "parity iterative:" << parity_is_odd_iterative(bitstream, length) << std::endl;
+    std::cout << "parity recursiv:" << parity_is_odd_recursive(bitstream, length) << std::endl;
 };
 
 void class_student_collection_addon()
@@ -298,7 +341,8 @@ int main()
     //exercises_chapter5();
     //tester_class_string();
     //recursive_examples();
-    class_student_collection_addon();
+    //class_student_collection_addon();
+    recursive_exercises();
     return EXIT_SUCCESS;
 }
 
