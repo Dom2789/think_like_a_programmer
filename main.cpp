@@ -251,6 +251,41 @@ void recursive_examples()
     std::cout << gauss_array_sum(numbers, length) << std::endl;
 };
 
+void class_student_collection_addon()
+{
+    using namespace chapter5;
+    //auto sc = new student_collection;
+    student_collection sc;
+    sc.add_record(student_record(90, 10001, "Tom"));
+    sc.add_record(student_record(2, 10002, "Sasha"));
+    sc.add_record(student_record(67, 10003, "Alistair"));
+    sc.add_record(student_record(31, 10004, "Erin"));
+    sc.add_record(student_record(56, 10005, "Paulina"));
+    sc.add_record(student_record(38, 10006, "Paul"));
+    sc.add_record(student_record(99, 10006, "Lisa"));
+
+    // average grade by client code
+    int grade_total = 0;
+    int number_records = 0;
+    sc_iterator iter = sc_iterator(sc.first_item_iterator());
+    while (!iter.past_end())
+    {
+        number_records +=1;
+        student_record student = iter.student();
+        grade_total += student.get_grade();
+        iter.advance();
+    }
+    double average = static_cast<double>(grade_total) / number_records;
+    std::cout << "Number of students: " << number_records << std::endl;
+    std::cout << "Average grade: " << average << std::endl;
+    sc.set_first_student_policy(higher_grade);
+    std::cout << "First student by grade: " << sc.first_student().get_name() << std::endl;
+    sc.set_first_student_policy(lower_student_number);
+    std::cout << "First student by seniority: " << sc.first_student().get_name() << std::endl;
+    sc.set_first_student_policy(name_comes_first);
+    std::cout << "First student by name: " << sc.first_student().get_name() << std::endl;
+};
+
 int main()
 {
     cout << "Exercises from THINK LIKE A PROGRAMMER\n";
@@ -262,7 +297,8 @@ int main()
     //chapter_3();
     //exercises_chapter5();
     //tester_class_string();
-    recursive_examples();
+    //recursive_examples();
+    class_student_collection_addon();
     return EXIT_SUCCESS;
 }
 

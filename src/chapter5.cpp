@@ -8,6 +8,43 @@ namespace chapter5
         std::cout << "Hello World 5\n";
     }
 
+    // default conctructor
+    sc_iterator::sc_iterator()
+    {
+        current = nullptr;
+    }
+
+    // paramter cotr
+    sc_iterator::sc_iterator(student_collection::student_node* initial)
+    {
+        current = initial;
+    }
+
+    void sc_iterator::advance()
+    {
+        if (current != nullptr)
+            current = current->next;
+    }
+
+    bool sc_iterator::past_end()
+    {
+        return current == nullptr;
+    }
+
+    student_record sc_iterator::student()
+    {
+        if (current == nullptr)
+        {
+            student_record dummy(1, -1, "");
+            return dummy;
+        } else
+        {
+            return current->student_data;
+        }
+    }
+
+    //}
+
     string::string()
     {
         _array = new char[0];
@@ -238,6 +275,7 @@ namespace chapter5
     // constructor
     student_collection::student_collection() {
         _list_head = NULL;
+        _current_policy = nullptr;
     }
 
     void student_collection::add_record(const student_record& new_student) {
@@ -332,4 +370,34 @@ namespace chapter5
         _list_head = deep_copy(original._list_head);
     }
 
+    sc_iterator student_collection::first_item_iterator()
+    {
+        return {_list_head};
+    }
+
+    void student_collection::set_first_student_policy(first_student_policy f)
+    {
+        _current_policy = f;
+    }
+
+    student_record student_collection::first_student()
+    {
+        if (_list_head == NULL || _current_policy == NULL)
+        {
+            student_record dummy = student_record(-1,-1,"");
+            return dummy;
+        }
+        student_node* loop_ptr = _list_head;
+        student_record first_student = loop_ptr->student_data;
+        loop_ptr = loop_ptr->next;
+        while (loop_ptr != NULL)
+        {
+            if (_current_policy(loop_ptr->student_data, first_student))
+            {
+                first_student = loop_ptr->student_data;
+            }
+            loop_ptr = loop_ptr->next;
+        }
+        return first_student;
+    }
 };

@@ -2,11 +2,12 @@
 #define CHAPTER5_
 #include <iostream>
 
+#include "chapter4.h"
+
 namespace chapter5
 {
     void hello_world();
     int get_current_year();
-
     class string
     {
         typedef char * array_string;
@@ -25,7 +26,6 @@ namespace chapter5
             int length(array_string s) const;
 
     };
-
     class automobile
     {
         public:
@@ -62,28 +62,58 @@ namespace chapter5
             std::string _name;
             bool is_valid_grade(int new_grade);
     };
+    class sc_iterator;
     class student_collection{
-        private:
-            struct student_node {
-                student_record student_data;
-                student_node* next;
-            };
-        public:
-            student_collection();
-            ~student_collection();
-            student_collection(const student_collection& original);
-            void add_record(const student_record& new_student);
-            student_record get_record_with_number(int id_num);
-            void remove_record(int id_num);
-            void print_all_students();
-            student_collection& operator= (const student_collection& rhs);
-        private:
-            typedef student_node* student_list;
-            student_list _list_head;
-            void delete_list(student_list& list_ptr);
-            student_list deep_copy(const student_list original);
+        typedef bool (* first_student_policy)(student_record r1, student_record r2);
+        struct student_node {
+            student_record student_data;
+            student_node* next;
+        };
+    public:
+        student_collection();
+        student_collection(const student_collection& original);
+        ~student_collection();
+        friend class sc_iterator;
+        void add_record(const student_record& new_student);
+        student_record get_record_with_number(int id_num);
+        void remove_record(int id_num);
+        void print_all_students();
+        student_collection& operator= (const student_collection& rhs);
+        sc_iterator first_item_iterator();
+        // dependency injection
+        void set_first_student_policy(first_student_policy f);
+        student_record first_student();
+    private:
+        first_student_policy _current_policy;
+        typedef student_node* student_list;
+        student_list _list_head;
+        void delete_list(student_list& list_ptr);
+        student_list deep_copy(const student_list original);
+    };
+    class sc_iterator
+    {
+    public:
+        sc_iterator();
+        sc_iterator(student_collection::student_node * initial);
+        void advance();
+        bool past_end();
+        student_record student();
+    private:
+        student_collection::student_node * current;
+    };
+    // function to inject into method set_first_student_policy of class student_collection
+    inline bool higher_grade(student_record r1, student_record r2)
+    {
+        return r1.get_grade()>r2.get_grade();
+    };
+    inline bool lower_student_number(student_record r1, student_record r2)
+    {
+        return r1.get_id()<r2.get_id();
+    };
+    inline bool name_comes_first(student_record r1, student_record r2)
+    {
+        return strcmp(r1.get_name().c_str(), r2.get_name().c_str()) < 0;
     };
 }
-
 
 #endif
