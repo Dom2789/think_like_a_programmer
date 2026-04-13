@@ -294,6 +294,18 @@ void recursive_exercises()
     std::cout << "parity recursiv:" << parity_is_odd_recursive(bitstream, length) << std::endl;
 };
 
+void excercise_6_3()
+{
+    using namespace chapter6;
+    constexpr int length = 10;
+    constexpr int numbers[] = {1,2,1,4,1,10,7,8,9,10};
+    std::cout << "iterative count: " << count_integer_iterative(numbers,length,1) << std::endl;
+    std::cout << "recursive count: " << count_integer_iterative(numbers,length,1) << std::endl;
+    std::cout << "iterative count: " << count_integer_iterative(numbers,length,10) << std::endl;
+    std::cout << "recursive count: " << count_integer_iterative(numbers,length,10) << std::endl;
+
+};
+
 void class_student_collection_addon()
 {
     using namespace chapter5;
@@ -342,7 +354,8 @@ int main()
     //tester_class_string();
     //recursive_examples();
     //class_student_collection_addon();
-    recursive_exercises();
+    //recursive_exercises();
+    excercise_6_3();
     return EXIT_SUCCESS;
 }
 
