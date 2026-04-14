@@ -4,6 +4,7 @@
 #include "chapter4.h"
 #include "chapter5.h"
 #include "chapter6.h"
+#include "chapter7.h"
 #include <string>
 #include <vector>
 #include <random>
@@ -341,6 +342,42 @@ void class_student_collection_addon()
     std::cout << "First student by name: " << sc.first_student().get_name() << std::endl;
 };
 
+void class_student_collection_ex_7_1()
+{
+    using namespace chapter7;
+    //auto sc = new student_collection;
+    student_collection sc;
+    sc.add_record(chapter5::student_record(90, 10001, "Tom"));
+    sc.add_record(chapter5::student_record(2, 10002, "Sasha"));
+    sc.add_record(chapter5::student_record(67, 10003, "Alistair"));
+    sc.add_record(chapter5::student_record(31, 10004, "Erin"));
+    sc.add_record(chapter5::student_record(56, 10005, "Paulina"));
+    sc.add_record(chapter5::student_record(38, 10006, "Paul"));
+    sc.add_record(chapter5::student_record(99, 10006, "Lisa"));
+
+    // average grade by client code
+    int grade_total = 0;
+    int number_records = 0;
+    sc_iterator7 iter = sc_iterator7(sc.first_item_iterator());
+    while (!iter.past_end())
+    {
+        number_records +=1;
+        chapter5::student_record student = iter.student();
+        grade_total += student.get_grade();
+        iter.advance();
+    }
+    double average = static_cast<double>(grade_total) / number_records;
+    std::cout << "Number of students: " << number_records << std::endl;
+    std::cout << "Average grade: " << average << std::endl;
+    sc.set_first_student_policy(first_student_policy::higher_grade);
+    std::cout << "First student by grade: " << sc.first_student().get_name() << std::endl;
+    sc.set_first_student_policy(first_student_policy::lower_student_number);
+    std::cout << "First student by seniority: " << sc.first_student().get_name() << std::endl;
+    sc.set_first_student_policy(first_student_policy::name_comes_first);
+    std::cout << "First student by name: " << sc.first_student().get_name() << std::endl;
+};
+
+
 int main()
 {
     cout << "Exercises from THINK LIKE A PROGRAMMER\n";
@@ -355,7 +392,8 @@ int main()
     //recursive_examples();
     //class_student_collection_addon();
     //recursive_exercises();
-    excercise_6_3();
+    //excercise_6_3();
+    class_student_collection_ex_7_1();
     return EXIT_SUCCESS;
 }
 
