@@ -193,4 +193,36 @@ namespace chapter7
         }
     }
 
+    void print_all_students(std::forward_list<student_record> &students) {
+        if (students.empty()) std::cout << "No students" << std::endl;
+        else
+        {
+            std::cout << "Student collection:" << std::endl;
+            for (auto student : students)
+            {
+                std::cout << " Student number: " << student.student_num << " grade: "  << student.grade << std::endl;
+            }
+            std::cout << std::endl;
+        }
+    };
+
+    void add_record(std::forward_list<student_record> &students, int student_number, int grade)
+    {
+        student_record record = {student_number, grade};
+        students.push_front(record);
+    };
+
+    double average_grade(const std::forward_list<student_record> &students)
+    {
+        if (students.empty()) return 0.0;
+        double sum = 0.0;
+        int count = 0;
+        for (auto student : students)
+        {
+            count++;
+            sum += student.grade;
+        }
+        return sum / count;
+    };
+
 }

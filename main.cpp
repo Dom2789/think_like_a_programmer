@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <random>
+#include <forward_list>
 
 using std::cout;
 using std::endl;
@@ -50,6 +51,20 @@ void linked_lists() {
     remove_record(sc, 1003);
     print_student_collection(sc);
     std::cout << "Grade average: " << average_grade(sc) << std::endl;
+};
+
+void excercise_7_2()
+{
+    using namespace chapter7;
+    std::forward_list<student_record> students;
+    print_all_students(students);
+    add_record(students, 1001,10);
+    print_all_students(students);
+    add_record(students, 1002,20);
+    add_record(students, 1003,30);
+    add_record(students, 1004,40);
+    print_all_students(students);
+    std::cout << "Grade average: " << average_grade(students) << std::endl;
 };
 
 void endless_integer() {
@@ -393,7 +408,8 @@ int main()
     //class_student_collection_addon();
     //recursive_exercises();
     //excercise_6_3();
-    class_student_collection_ex_7_1();
+    //class_student_collection_ex_7_1();
+    excercise_7_2();
     return EXIT_SUCCESS;
 }
 

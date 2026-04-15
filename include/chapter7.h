@@ -1,6 +1,7 @@
 #ifndef CHAPTER7_
 #define CHAPTER7_
 #include <iostream>
+#include <forward_list>
 #include "chapter5.h"
 
 namespace chapter7
@@ -52,6 +53,14 @@ namespace chapter7
     private:
         student_collection::student_node * current;
     };
+
+    struct student_record {
+        int student_num;
+        int grade;
+    };
+    void print_all_students(std::forward_list<student_record> &students);
+    void add_record(std::forward_list<student_record> &students, int student_number, int grade);
+    double average_grade(const std::forward_list<student_record> &students);
 
 }
 
