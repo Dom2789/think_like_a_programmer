@@ -67,6 +67,12 @@ void excercise_7_2()
     std::cout << "Grade average: " << average_grade(students) << std::endl;
 };
 
+void excercise_7_3()
+{
+    using namespace chapter7;
+
+};
+
 void endless_integer() {
     using namespace chapter4;
     int integer, integer2 = 0;

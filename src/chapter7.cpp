@@ -193,19 +193,6 @@ namespace chapter7
         }
     }
 
-    void print_all_students(std::forward_list<student_record> &students) {
-        if (students.empty()) std::cout << "No students" << std::endl;
-        else
-        {
-            std::cout << "Student collection:" << std::endl;
-            for (auto student : students)
-            {
-                std::cout << " Student number: " << student.student_num << " grade: "  << student.grade << std::endl;
-            }
-            std::cout << std::endl;
-        }
-    };
-
     void add_record(std::forward_list<student_record> &students, int student_number, int grade)
     {
         student_record record = {student_number, grade};
@@ -223,6 +210,12 @@ namespace chapter7
             sum += student.grade;
         }
         return sum / count;
+    };
+
+    void add_record(std::vector<student_record> &students, int student_number, int grade)
+    {
+        student_record record = {student_number, grade};
+        students.push_back(record);
     };
 
 }

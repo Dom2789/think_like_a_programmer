@@ -58,9 +58,22 @@ namespace chapter7
         int student_num;
         int grade;
     };
-    void print_all_students(std::forward_list<student_record> &students);
+    template <typename Container>
+    void print_all_students(Container &students) {
+        if (students.empty()) std::cout << "No students" << std::endl;
+        else
+        {
+            std::cout << "Student collection:" << std::endl;
+            for (auto student : students)
+            {
+                std::cout << " Student number: " << student.student_num << " grade: "  << student.grade << std::endl;
+            }
+            std::cout << std::endl;
+        }
+    };
     void add_record(std::forward_list<student_record> &students, int student_number, int grade);
     double average_grade(const std::forward_list<student_record> &students);
+    void add_record(std::vector<student_record> &students, int student_number, int grade);
 
 }
 
