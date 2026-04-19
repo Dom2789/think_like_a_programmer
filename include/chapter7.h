@@ -2,6 +2,7 @@
 #define CHAPTER7_
 #include <iostream>
 #include <forward_list>
+#include <unordered_map>
 #include "chapter5.h"
 
 namespace chapter7
@@ -40,6 +41,7 @@ namespace chapter7
         static bool higher_grade(chapter5::student_record r1, chapter5::student_record r2);
         static bool lower_student_number(chapter5::student_record r1, chapter5::student_record r2);
         static bool name_comes_first(chapter5::student_record r1, chapter5::student_record r2);
+
     };
 
     class sc_iterator7
@@ -75,6 +77,20 @@ namespace chapter7
     void add_record(std::vector<student_record> &students, int student_number, int grade);
     double average_grade(const std::forward_list<student_record> &students);
     int interpolation_search(const std::vector<student_record> &students, int student_number);
+
+    class StudentRecord
+    {
+    public:
+        StudentRecord();
+        StudentRecord(int number, int grade);
+        int get_grade();
+        int get_student_number();
+        void add_extra_field(const std::string &name, const std::string &content);
+        std::string retrieve_extra_field(const std::string &name);
+    private:
+        int _student_number, _grade;
+        std::unordered_map<std::string, std::string> _extra_fields;
+    };
 
 }
 

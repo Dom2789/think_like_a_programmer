@@ -420,6 +420,16 @@ void excercise_7_3()
     std::cout << "Index of student with number " << student_look_up << ": " << interpolation_search(students,student_look_up)<< std::endl;
 };
 
+void excercise_7_7()
+{
+    using namespace chapter7;
+    auto sr1 = StudentRecord(1001,87);
+    std::cout << sr1.retrieve_extra_field("test");
+    sr1.add_extra_field("thesis", "how to drive cars");
+    std::cout << sr1.retrieve_extra_field("test");
+    std::cout << sr1.retrieve_extra_field("thesis");
+}
+
 int main()
 {
     cout << "Exercises from THINK LIKE A PROGRAMMER\n";
@@ -436,7 +446,7 @@ int main()
     //recursive_exercises();
     //excercise_6_3();
     //class_student_collection_ex_7_1();
-    excercise_7_3();
+    excercise_7_7();
     return EXIT_SUCCESS;
 }
 

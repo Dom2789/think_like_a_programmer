@@ -1,4 +1,5 @@
 #include "chapter7.h"
+#include <format>
 
 namespace chapter7
 {
@@ -239,4 +240,29 @@ namespace chapter7
         return idx;
     };
 
+    StudentRecord::StudentRecord() : _student_number(0), _grade(0) {}
+
+    StudentRecord::StudentRecord(int number, int grade) : _student_number(number), _grade(grade) {}
+
+    int StudentRecord::get_grade()
+    {
+        return _grade;
+    }
+
+    int StudentRecord::get_student_number()
+    {
+        return _student_number;
+    }
+
+    void StudentRecord::add_extra_field(const std::string &name, const std::string &content)
+    {
+        _extra_fields[name] = content;
+    }
+
+    std::string StudentRecord::retrieve_extra_field(const std::string &name)
+    {
+        if (_extra_fields.empty()) return "No extra fields!";
+        if (!_extra_fields.contains(name)) return std::format("'{}' is no a extra field!", name);
+        return _extra_fields[name];
+    }
 }

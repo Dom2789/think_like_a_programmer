@@ -9,7 +9,9 @@ set(SOURCE_FILES
     src/chapter6.cpp
     src/chapter7.cpp
     src/chapter8.cpp)
- 
+
+set(CMAKE_CXX_STANDARD 20)
+
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE 
