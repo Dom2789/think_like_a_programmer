@@ -72,8 +72,9 @@ namespace chapter7
         }
     };
     void add_record(std::forward_list<student_record> &students, int student_number, int grade);
-    double average_grade(const std::forward_list<student_record> &students);
     void add_record(std::vector<student_record> &students, int student_number, int grade);
+    double average_grade(const std::forward_list<student_record> &students);
+    int interpolation_search(const std::vector<student_record> &students, int student_number);
 
 }
 

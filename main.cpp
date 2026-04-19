@@ -67,12 +67,6 @@ void excercise_7_2()
     std::cout << "Grade average: " << average_grade(students) << std::endl;
 };
 
-void excercise_7_3()
-{
-    using namespace chapter7;
-
-};
-
 void endless_integer() {
     using namespace chapter4;
     int integer, integer2 = 0;
@@ -398,6 +392,33 @@ void class_student_collection_ex_7_1()
     std::cout << "First student by name: " << sc.first_student().get_name() << std::endl;
 };
 
+void excercise_7_3()
+{
+    using namespace chapter7;
+    std::vector<student_record> students;
+    add_record(students, 1001,10);
+    add_record(students, 1002,20);
+    add_record(students, 1003,30);
+    add_record(students, 1004,40);
+    add_record(students, 1005,99);
+    add_record(students, 1006,100);
+    add_record(students, 1007,44);
+    add_record(students, 1010,100);
+    add_record(students, 1012,44);
+    add_record(students, 1021,10);
+    add_record(students, 1022,20);
+    add_record(students, 1023,30);
+    add_record(students, 1024,40);
+    add_record(students, 1025,99);
+    add_record(students, 1026,100);
+    add_record(students, 1027,44);
+    add_record(students, 1030,100);
+    add_record(students, 1032,44);
+    print_all_students(students);
+    int student_look_up;
+    std::cin >> student_look_up;
+    std::cout << "Index of student with number " << student_look_up << ": " << interpolation_search(students,student_look_up)<< std::endl;
+};
 
 int main()
 {
@@ -415,7 +436,7 @@ int main()
     //recursive_exercises();
     //excercise_6_3();
     //class_student_collection_ex_7_1();
-    excercise_7_2();
+    excercise_7_3();
     return EXIT_SUCCESS;
 }
 

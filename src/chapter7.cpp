@@ -199,6 +199,12 @@ namespace chapter7
         students.push_front(record);
     };
 
+    void add_record(std::vector<student_record> &students, int student_number, int grade)
+    {
+        student_record record = {student_number, grade};
+        students.push_back(record);
+    };
+
     double average_grade(const std::forward_list<student_record> &students)
     {
         if (students.empty()) return 0.0;
@@ -212,10 +218,25 @@ namespace chapter7
         return sum / count;
     };
 
-    void add_record(std::vector<student_record> &students, int student_number, int grade)
+    int interpolation_search(const std::vector<student_record> &students, const int student_number)
     {
-        student_record record = {student_number, grade};
-        students.push_back(record);
+        if (students.empty()) return -1;
+        unsigned int r= students.size()-1;
+        unsigned int l = 0;
+        // number out of bounds from given data
+        if (student_number > students[r].student_num || student_number < students[l].student_num) return -1;
+        int idx = 0;
+        do
+        {
+            idx = l + static_cast<double>(r-l)*(static_cast<double>(student_number-students[l].student_num)/(students[r].student_num-students[l].student_num));
+            // number is not found in data
+            if (idx > students.size()) return -1;
+            // check which half to search further
+            if (student_number > students[idx].student_num) l = l+idx;
+            else if (student_number < students[idx].student_num) r = r-idx;
+        }
+        while (student_number != students[idx].student_num);
+        return idx;
     };
 
 }
